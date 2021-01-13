@@ -20,7 +20,8 @@ class DefaultController extends AbstractController
         return $this->render('default/index.html.twig', [
             'controller_name' => 'DefaultController',
             'KanyeQuote' => $this->getKanyeQuote(),
-            'TrumpQuote' => $this->getTrumpQuote()
+            'TrumpQuote' => $this->getTrumpQuote(),
+            'Image' => $this->getImage()
         ]);
     }
 
@@ -68,7 +69,8 @@ class DefaultController extends AbstractController
         return $this->render('default/index.html.twig', [
             'controller_name' => 'DefaultController',
             'KanyeQuote' => $this->getKanyeQuote(),
-            'TrumpQuote' => $this->getTrumpQuote()
+            'TrumpQuote' => $this->getTrumpQuote(),
+            'Image' => $this->getImage()
         ]);
     } 
 
@@ -81,7 +83,8 @@ class DefaultController extends AbstractController
         return $this->render('default/index.html.twig', [
             'controller_name' => 'DefaultController',
             'KanyeQuote' => $this->getKanyeQuote(),
-            'TrumpQuote' => $this->getTrumpQuote()
+            'TrumpQuote' => $this->getTrumpQuote(),
+            'Image' => $this->getImage()
         ]);
     } 
 }
