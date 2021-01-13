@@ -17,12 +17,6 @@ class DefaultController extends AbstractController
      */
     public function index(): Response
     {
-<<<<<<< HEAD
-        var_dump($this->getKanyeQuote());
-        var_dump($this->getImage());
-=======
-
->>>>>>> 7e6ed3563b9fb27491e390ee3f4467de30acf59b
         return $this->render('default/index.html.twig', [
             'controller_name' => 'DefaultController',
             'KanyeQuote' => $this->getKanyeQuote(),
