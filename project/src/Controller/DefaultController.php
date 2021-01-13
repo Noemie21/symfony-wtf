@@ -2,18 +2,23 @@
 
 namespace App\Controller;
 
+ use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpClient\HttpClient;
+use Symfony\Component\HttpFoundation\HeaderUtils;
+
 class DefaultController extends AbstractController
 {
+    
     /**
      * @Route("/", name="default")
      */
     public function index(): Response
     {
         var_dump($this->getKanyeQuote());
+        var_dump($this->getImage());
         return $this->render('default/index.html.twig', [
             'controller_name' => 'DefaultController',
         ]);
@@ -27,5 +32,20 @@ class DefaultController extends AbstractController
         $response = $httpClient->request('GET', $apiUrl);
         $content = $response->toArray();
         return $content['quote'];
+    }
+
+    private function getImage(): String
+    {
+        
+        $accessKey = $this->getParameter('accesskey');
+        $apiUrl = "https://api.unsplash.com/photos/random";
+        $httpClient = HttpClient::create();
+        $response = $httpClient->request('GET', $apiUrl, [
+            'headers' => [
+                'Authorization' => "Client-ID " . $accessKey
+            ]
+        ]);
+        $content = $response->toArray();
+        return $content['urls']['full'];
     }
 }
