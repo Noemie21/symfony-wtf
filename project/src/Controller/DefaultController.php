@@ -35,22 +35,7 @@ class DefaultController extends AbstractController
         return $content['quote'];
     }
 
-    private function getImage(): String
-    {
-        
-        $accessKey = $this->getParameter('accesskey');
-        $apiUrl = "https://api.unsplash.com/photos/random";
-        $httpClient = HttpClient::create();
-        $response = $httpClient->request('GET', $apiUrl, [
-            'headers' => [
-                'Authorization' => "Client-ID " . $accessKey
-            ]
-        ]);
-        $content = $response->toArray();
-        return $content['urls']['full'];
-    }
-
-  private function getTrumpQuote(): String
+    private function getTrumpQuote(): String
     {
 
         $apiUrl = "https://api.tronalddump.io/random/quote";
