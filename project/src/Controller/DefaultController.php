@@ -19,6 +19,8 @@ class DefaultController extends AbstractController
     {
         return $this->render('default/index.html.twig', [
             'controller_name' => 'DefaultController',
+            'KanyeQuote' => $this->getKanyeQuote(),
+            'TrumpQuote' => $this->getTrumpQuote()
         ]);
     } 
     
@@ -32,18 +34,39 @@ class DefaultController extends AbstractController
         return $content['quote'];
     }
 
-    private function getImage(): String
+    private function getTrumpQuote(): String
     {
-        
-        $accessKey = $this->getParameter('accesskey');
-        $apiUrl = "https://api.unsplash.com/photos/random";
+
+        $apiUrl = "https://api.tronalddump.io/random/quote";
         $httpClient = HttpClient::create();
-        $response = $httpClient->request('GET', $apiUrl, [
-            'headers' => [
-                'Authorization' => "Client-ID " . $accessKey
-            ]
-        ]);
+        $response = $httpClient->request('GET', $apiUrl);
         $content = $response->toArray();
-        return $content['urls']['full'];
+        return $content['value'];
     }
+
+    /**
+     * @Route("/Kanye", name="Kanye")
+     */
+    public function k(): Response
+    {
+
+        return $this->render('default/index.html.twig', [
+            'controller_name' => 'DefaultController',
+            'KanyeQuote' => $this->getKanyeQuote(),
+            'TrumpQuote' => $this->getTrumpQuote()
+        ]);
+    } 
+
+      /**
+     * @Route("/Trump", name="Trump")
+     */
+    public function t(): Response
+    {
+
+        return $this->render('default/index.html.twig', [
+            'controller_name' => 'DefaultController',
+            'KanyeQuote' => $this->getKanyeQuote(),
+            'TrumpQuote' => $this->getTrumpQuote()
+        ]);
+    } 
 }

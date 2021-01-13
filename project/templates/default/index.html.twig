@@ -11,10 +11,45 @@
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/noemie/Documents/symfony-wtf/project/src/Controller/DefaultController.php'|file_link(0) }}">src/Controller/DefaultController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/noemie/Documents/symfony-wtf/project/templates/default/index.html.twig'|file_link(0) }}">templates/default/index.html.twig</a></code></li>
-    </ul>
+    
+    <div class="container" style="margin-top: 100px;">
+        <div class="row">
+            <div class="col">
+                <p>{{KanyeQuote}}</p>
+            </div>
+            <div class="col">
+                <p>{{TrumpQuote}}</p>
+            </div>
+        </div>  
+
+        <div class="row">
+            <div class="col">
+                <a href="{{path('Kanye')}}"><button type="button" class="btn btn-danger" value="Kanye" style="width: 200px;">Vote</button></a>
+            </div>
+            <div class="col">
+                <a href="{{path('Trump')}}"><button type="button" class="btn btn-danger" value="Trump" style="width: 200px;">Vote</button></a>
+            </div>
+        </div>
+
+    </div>
+    <div class="container" style="margin-top: 100px;">
+        <div class="row">
+            <div class="col">
+                <p>Kanye</p>
+            </div>
+            <div class="col text-end">
+                <p>Trump</p>
+            </div>
+        </div>
+
+        <div class="row">
+            
+        </div>
+            <div class="progress">
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+
+    </div>
 </div>
 {% endblock %}
